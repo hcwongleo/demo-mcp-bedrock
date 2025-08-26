@@ -45,10 +45,10 @@ class ChatClient:
             service_name='bedrock-runtime' if runtime else 'bedrock',
             region_name=self.region,
             config=Config(
-                read_timeout=300,
-                connect_timeout=60,
+                read_timeout=600,
+                connect_timeout=120,
                 retries={
-                    "max_attempts": 3,
+                    "max_attempts": 5,
                     "mode": "standard",
                 },
                 read_timeout=600,
