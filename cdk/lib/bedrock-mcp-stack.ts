@@ -148,7 +148,7 @@ export class BedrockMcpStack extends cdk.Stack {
       
       // Use git clone approach (more reliable than S3)
       'log "Cloning application code from GitHub"',
-      'su - ubuntu -c "cd /home/ubuntu && git clone https://github.com/aws-samples/demo_mcp_on_amazon_bedrock.git"',
+      'su - ubuntu -c "cd /home/ubuntu && git clone https://github.com/hcwongleo/demo-mcp-bedrock.git demo_mcp_on_amazon_bedrock"',
       'cd /home/ubuntu/demo_mcp_on_amazon_bedrock',
       
       // Override config with Nova Pro only
