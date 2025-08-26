@@ -42,8 +42,9 @@ class ChatClientStream(ChatClient):
         self.base_delay = 10 # Initial backoff delay in seconds
         self.max_delay = 60 # Maximum backoff delay in seconds
         self.client_index = 0
+        self.bedrock_client_pool = [] # Initialize empty client pool
         self.stop_flags = {} # Dict to track stop flags for streams
-    
+        
     def get_bedrock_client_from_pool(self):
         """Get Bedrock client using IAM role"""
         return self._get_bedrock_client()
@@ -155,6 +156,10 @@ class ChatClientStream(ChatClient):
                     yield {"type": "stopped", "data": {"message": f"Get tool config from {mcp_server_id} failed, please restart the MCP server"}}
         logger.info(f"Tool config: {tool_config}")
         
+        # Safety check for bedrock_client_pool attribute
+        if not hasattr(self, 'bedrock_client_pool'):
+            self.bedrock_client_pool = []
+            
         use_client_pool = True if self.bedrock_client_pool else False
 
         bedrock_client = self.get_bedrock_client_from_pool()
@@ -243,7 +248,9 @@ class ChatClientStream(ChatClient):
                             if use_client_pool:
                                 bedrock_client = self.get_bedrock_client_from_pool()
             
-                                if pool_attempt > len(self.bedrock_client_pool): # 如果都轮巡了一遍
+                                # Safety check for bedrock_client_pool
+                                pool_size = len(getattr(self, 'bedrock_client_pool', []))
+                                if pool_attempt > pool_size: # 如果都轮巡了一遍
                                     delay = self.exponential_backoff(attempt)
                                     msg = f"Throttling exception encountered. Retrying in {delay:.2f} seconds (attempt {attempt+1}/{self.max_retries})\n"
                                     logger.warning(msg)

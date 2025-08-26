@@ -1,0 +1,34 @@
+{
+  "version": "39.0.0",
+  "files": {
+    "7fa1e366ee8a9ded01fc355f704cff92bfd179574e6f9cfee800a3541df1b200": {
+      "source": {
+        "path": "asset.7fa1e366ee8a9ded01fc355f704cff92bfd179574e6f9cfee800a3541df1b200",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "214806110050-us-east-1": {
+          "bucketName": "cdk-cdk123207-assets-214806110050-us-east-1",
+          "objectKey": "7fa1e366ee8a9ded01fc355f704cff92bfd179574e6f9cfee800a3541df1b200.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::214806110050:role/cdk-cdk123207-file-publishing-role-214806110050-us-east-1"
+        }
+      }
+    },
+    "e2d4f4c439b1ae74d5374529c0798aa7e07bf5903bd35c161c31a297aff716ec": {
+      "source": {
+        "path": "BedrockMcpStack-cdk123207.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "214806110050-us-east-1": {
+          "bucketName": "cdk-cdk123207-assets-214806110050-us-east-1",
+          "objectKey": "e2d4f4c439b1ae74d5374529c0798aa7e07bf5903bd35c161c31a297aff716ec.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::214806110050:role/cdk-cdk123207-file-publishing-role-214806110050-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

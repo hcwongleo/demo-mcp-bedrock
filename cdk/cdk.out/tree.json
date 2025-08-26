@@ -4,17 +4,17 @@
     "id": "App",
     "path": "",
     "children": {
-      "BedrockMcpStack-cdk112545": {
-        "id": "BedrockMcpStack-cdk112545",
-        "path": "BedrockMcpStack-cdk112545",
+      "BedrockMcpStack-cdk123207": {
+        "id": "BedrockMcpStack-cdk123207",
+        "path": "BedrockMcpStack-cdk123207",
         "children": {
           "MCP-VPC": {
             "id": "MCP-VPC",
-            "path": "BedrockMcpStack-cdk112545/MCP-VPC",
+            "path": "BedrockMcpStack-cdk123207/MCP-VPC",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "BedrockMcpStack-cdk112545/MCP-VPC/Resource",
+                "path": "BedrockMcpStack-cdk123207/MCP-VPC/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPC",
                   "aws:cdk:cloudformation:props": {
@@ -25,7 +25,7 @@
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "BedrockMcpStack-cdk112545/MCP-VPC"
+                        "value": "BedrockMcpStack-cdk123207/MCP-VPC"
                       }
                     ]
                   }
@@ -37,11 +37,11 @@
               },
               "PublicSubnet1": {
                 "id": "PublicSubnet1",
-                "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1",
+                "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1/Subnet",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -59,7 +59,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -74,7 +74,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1/Acl",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.177.0"
@@ -82,14 +82,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1/RouteTable",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -104,7 +104,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1/RouteTableAssociation",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -123,7 +123,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1/DefaultRoute",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -143,7 +143,7 @@
                   },
                   "EIP": {
                     "id": "EIP",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1/EIP",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1/EIP",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
                       "aws:cdk:cloudformation:props": {
@@ -151,7 +151,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -163,7 +163,7 @@
                   },
                   "NATGateway": {
                     "id": "NATGateway",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1/NATGateway",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1/NATGateway",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
                       "aws:cdk:cloudformation:props": {
@@ -179,7 +179,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet1"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -197,11 +197,11 @@
               },
               "PublicSubnet2": {
                 "id": "PublicSubnet2",
-                "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet2",
+                "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet2/Subnet",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -219,7 +219,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet2"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -234,7 +234,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet2/Acl",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.177.0"
@@ -242,14 +242,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet2/RouteTable",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet2"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -264,7 +264,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet2/RouteTableAssociation",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -283,7 +283,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PublicSubnet2/DefaultRoute",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PublicSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -309,11 +309,11 @@
               },
               "PrivateSubnet1": {
                 "id": "PrivateSubnet1",
-                "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet1",
+                "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet1/Subnet",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -331,7 +331,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet1"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -346,7 +346,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet1/Acl",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.177.0"
@@ -354,14 +354,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet1/RouteTable",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet1"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet1"
                           }
                         ],
                         "vpcId": {
@@ -376,7 +376,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet1/RouteTableAssociation",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -395,7 +395,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet1/DefaultRoute",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -421,11 +421,11 @@
               },
               "PrivateSubnet2": {
                 "id": "PrivateSubnet2",
-                "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet2",
+                "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet2/Subnet",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -443,7 +443,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet2"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -458,7 +458,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet2/Acl",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.177.0"
@@ -466,14 +466,14 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet2/RouteTable",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet2"
+                            "value": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet2"
                           }
                         ],
                         "vpcId": {
@@ -488,7 +488,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet2/RouteTableAssociation",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -507,7 +507,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/PrivateSubnet2/DefaultRoute",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/PrivateSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -533,14 +533,14 @@
               },
               "IGW": {
                 "id": "IGW",
-                "path": "BedrockMcpStack-cdk112545/MCP-VPC/IGW",
+                "path": "BedrockMcpStack-cdk123207/MCP-VPC/IGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::InternetGateway",
                   "aws:cdk:cloudformation:props": {
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "BedrockMcpStack-cdk112545/MCP-VPC"
+                        "value": "BedrockMcpStack-cdk123207/MCP-VPC"
                       }
                     ]
                   }
@@ -552,7 +552,7 @@
               },
               "VPCGW": {
                 "id": "VPCGW",
-                "path": "BedrockMcpStack-cdk112545/MCP-VPC/VPCGW",
+                "path": "BedrockMcpStack-cdk123207/MCP-VPC/VPCGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPCGatewayAttachment",
                   "aws:cdk:cloudformation:props": {
@@ -571,11 +571,11 @@
               },
               "RestrictDefaultSecurityGroupCustomResource": {
                 "id": "RestrictDefaultSecurityGroupCustomResource",
-                "path": "BedrockMcpStack-cdk112545/MCP-VPC/RestrictDefaultSecurityGroupCustomResource",
+                "path": "BedrockMcpStack-cdk123207/MCP-VPC/RestrictDefaultSecurityGroupCustomResource",
                 "children": {
                   "Default": {
                     "id": "Default",
-                    "path": "BedrockMcpStack-cdk112545/MCP-VPC/RestrictDefaultSecurityGroupCustomResource/Default",
+                    "path": "BedrockMcpStack-cdk123207/MCP-VPC/RestrictDefaultSecurityGroupCustomResource/Default",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.CfnResource",
                       "version": "2.177.0"
@@ -595,11 +595,11 @@
           },
           "Custom::VpcRestrictDefaultSGCustomResourceProvider": {
             "id": "Custom::VpcRestrictDefaultSGCustomResourceProvider",
-            "path": "BedrockMcpStack-cdk112545/Custom::VpcRestrictDefaultSGCustomResourceProvider",
+            "path": "BedrockMcpStack-cdk123207/Custom::VpcRestrictDefaultSGCustomResourceProvider",
             "children": {
               "Staging": {
                 "id": "Staging",
-                "path": "BedrockMcpStack-cdk112545/Custom::VpcRestrictDefaultSGCustomResourceProvider/Staging",
+                "path": "BedrockMcpStack-cdk123207/Custom::VpcRestrictDefaultSGCustomResourceProvider/Staging",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.AssetStaging",
                   "version": "2.177.0"
@@ -607,7 +607,7 @@
               },
               "Role": {
                 "id": "Role",
-                "path": "BedrockMcpStack-cdk112545/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role",
+                "path": "BedrockMcpStack-cdk123207/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.177.0"
@@ -615,7 +615,7 @@
               },
               "Handler": {
                 "id": "Handler",
-                "path": "BedrockMcpStack-cdk112545/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
+                "path": "BedrockMcpStack-cdk123207/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.177.0"
@@ -629,11 +629,11 @@
           },
           "MCP-ALB-SG": {
             "id": "MCP-ALB-SG",
-            "path": "BedrockMcpStack-cdk112545/MCP-ALB-SG",
+            "path": "BedrockMcpStack-cdk123207/MCP-ALB-SG",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "BedrockMcpStack-cdk112545/MCP-ALB-SG/Resource",
+                "path": "BedrockMcpStack-cdk123207/MCP-ALB-SG/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                   "aws:cdk:cloudformation:props": {
@@ -650,7 +650,7 @@
               },
               "to 0.0.0.0_0:ALL TRAFFIC": {
                 "id": "to 0.0.0.0_0:ALL TRAFFIC",
-                "path": "BedrockMcpStack-cdk112545/MCP-ALB-SG/to 0.0.0.0_0:ALL TRAFFIC",
+                "path": "BedrockMcpStack-cdk123207/MCP-ALB-SG/to 0.0.0.0_0:ALL TRAFFIC",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
                   "aws:cdk:cloudformation:props": {
@@ -672,7 +672,7 @@
               },
               "from 4.0.0.0_23:8502": {
                 "id": "from 4.0.0.0_23:8502",
-                "path": "BedrockMcpStack-cdk112545/MCP-ALB-SG/from 4.0.0.0_23:8502",
+                "path": "BedrockMcpStack-cdk123207/MCP-ALB-SG/from 4.0.0.0_23:8502",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                   "aws:cdk:cloudformation:props": {
@@ -702,11 +702,11 @@
           },
           "MCP-EC2-SG": {
             "id": "MCP-EC2-SG",
-            "path": "BedrockMcpStack-cdk112545/MCP-EC2-SG",
+            "path": "BedrockMcpStack-cdk123207/MCP-EC2-SG",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "BedrockMcpStack-cdk112545/MCP-EC2-SG/Resource",
+                "path": "BedrockMcpStack-cdk123207/MCP-EC2-SG/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                   "aws:cdk:cloudformation:props": {
@@ -742,9 +742,9 @@
                   "version": "2.177.0"
                 }
               },
-              "from BedrockMcpStackcdk112545MCPALBSG8D581DB4:8502": {
-                "id": "from BedrockMcpStackcdk112545MCPALBSG8D581DB4:8502",
-                "path": "BedrockMcpStack-cdk112545/MCP-EC2-SG/from BedrockMcpStackcdk112545MCPALBSG8D581DB4:8502",
+              "from BedrockMcpStackcdk123207MCPALBSGE4E5A3D2:8502": {
+                "id": "from BedrockMcpStackcdk123207MCPALBSGE4E5A3D2:8502",
+                "path": "BedrockMcpStack-cdk123207/MCP-EC2-SG/from BedrockMcpStackcdk123207MCPALBSGE4E5A3D2:8502",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                   "aws:cdk:cloudformation:props": {
@@ -779,11 +779,11 @@
           },
           "EC2-Role": {
             "id": "EC2-Role",
-            "path": "BedrockMcpStack-cdk112545/EC2-Role",
+            "path": "BedrockMcpStack-cdk123207/EC2-Role",
             "children": {
               "ImportEC2-Role": {
                 "id": "ImportEC2-Role",
-                "path": "BedrockMcpStack-cdk112545/EC2-Role/ImportEC2-Role",
+                "path": "BedrockMcpStack-cdk123207/EC2-Role/ImportEC2-Role",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.177.0"
@@ -791,7 +791,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "BedrockMcpStack-cdk112545/EC2-Role/Resource",
+                "path": "BedrockMcpStack-cdk123207/EC2-Role/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                   "aws:cdk:cloudformation:props": {
@@ -830,11 +830,11 @@
               },
               "DefaultPolicy": {
                 "id": "DefaultPolicy",
-                "path": "BedrockMcpStack-cdk112545/EC2-Role/DefaultPolicy",
+                "path": "BedrockMcpStack-cdk123207/EC2-Role/DefaultPolicy",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "BedrockMcpStack-cdk112545/EC2-Role/DefaultPolicy/Resource",
+                    "path": "BedrockMcpStack-cdk123207/EC2-Role/DefaultPolicy/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                       "aws:cdk:cloudformation:props": {
@@ -878,11 +878,11 @@
           },
           "MCP-ALB": {
             "id": "MCP-ALB",
-            "path": "BedrockMcpStack-cdk112545/MCP-ALB",
+            "path": "BedrockMcpStack-cdk123207/MCP-ALB",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "BedrockMcpStack-cdk112545/MCP-ALB/Resource",
+                "path": "BedrockMcpStack-cdk123207/MCP-ALB/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
                   "aws:cdk:cloudformation:props": {
@@ -919,11 +919,11 @@
               },
               "Streamlit": {
                 "id": "Streamlit",
-                "path": "BedrockMcpStack-cdk112545/MCP-ALB/Streamlit",
+                "path": "BedrockMcpStack-cdk123207/MCP-ALB/Streamlit",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "BedrockMcpStack-cdk112545/MCP-ALB/Streamlit/Resource",
+                    "path": "BedrockMcpStack-cdk123207/MCP-ALB/Streamlit/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
                       "aws:cdk:cloudformation:props": {
@@ -949,11 +949,11 @@
                   },
                   "Streamlit-TargetGroup": {
                     "id": "Streamlit-TargetGroup",
-                    "path": "BedrockMcpStack-cdk112545/MCP-ALB/Streamlit/Streamlit-TargetGroup",
+                    "path": "BedrockMcpStack-cdk123207/MCP-ALB/Streamlit/Streamlit-TargetGroup",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "BedrockMcpStack-cdk112545/MCP-ALB/Streamlit/Streamlit-TargetGroup/Resource",
+                        "path": "BedrockMcpStack-cdk123207/MCP-ALB/Streamlit/Streamlit-TargetGroup/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
                           "aws:cdk:cloudformation:props": {
@@ -1004,11 +1004,11 @@
           },
           "MCP-LaunchTemplate": {
             "id": "MCP-LaunchTemplate",
-            "path": "BedrockMcpStack-cdk112545/MCP-LaunchTemplate",
+            "path": "BedrockMcpStack-cdk123207/MCP-LaunchTemplate",
             "children": {
               "Profile": {
                 "id": "Profile",
-                "path": "BedrockMcpStack-cdk112545/MCP-LaunchTemplate/Profile",
+                "path": "BedrockMcpStack-cdk123207/MCP-LaunchTemplate/Profile",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::InstanceProfile",
                   "aws:cdk:cloudformation:props": {
@@ -1026,7 +1026,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "BedrockMcpStack-cdk112545/MCP-LaunchTemplate/Resource",
+                "path": "BedrockMcpStack-cdk123207/MCP-LaunchTemplate/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::LaunchTemplate",
                   "aws:cdk:cloudformation:props": {
@@ -1066,7 +1066,7 @@
                           "tags": [
                             {
                               "key": "Name",
-                              "value": "BedrockMcpStack-cdk112545/MCP-LaunchTemplate"
+                              "value": "BedrockMcpStack-cdk123207/MCP-LaunchTemplate"
                             }
                           ]
                         },
@@ -1075,13 +1075,13 @@
                           "tags": [
                             {
                               "key": "Name",
-                              "value": "BedrockMcpStack-cdk112545/MCP-LaunchTemplate"
+                              "value": "BedrockMcpStack-cdk123207/MCP-LaunchTemplate"
                             }
                           ]
                         }
                       ],
                       "userData": {
-                        "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nset -e\nlog() { echo \"$(date): $1\" | tee -a /var/log/mcp-deployment.log; }\nlog \"Starting MCP deployment with local code\"\nexport HOME=/root\nexport PATH=\"/usr/local/bin:$PATH\"\nexport DEBIAN_FRONTEND=noninteractive\nlog \"Updating system packages\"\napt-get update -y\napt-get install -y software-properties-common curl wget git build-essential unzip\nlog \"Installing AWS CLI\"\ncurl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\"\nunzip awscliv2.zip\n./aws/install\nrm -rf aws awscliv2.zip\nlog \"Installing Python 3.12\"\nadd-apt-repository -y ppa:deadsnakes/ppa\napt-get update -y\napt-get install -y python3.12 python3.12-venv python3.12-dev python3-pip\nlog \"Installing Node.js\"\ncurl -fsSL https://deb.nodesource.com/setup_22.x | bash -\napt-get install -y nodejs\nlog \"Installing system dependencies\"\napt-get install -y portaudio19-dev libasound2-dev libportaudio2 libportaudiocpp0\nlog \"Setting up ubuntu user environment\"\nsu - ubuntu -c \"curl -LsSf https://astral.sh/uv/install.sh | sh\"\necho 'export PATH=\"/home/ubuntu/.local/bin:$PATH\"' >> /home/ubuntu/.bashrc\nlog \"Creating project directory\"\nmkdir -p /home/ubuntu/demo_mcp_on_amazon_bedrock\nchown ubuntu:ubuntu /home/ubuntu/demo_mcp_on_amazon_bedrock\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Cloning application code from GitHub\"\nsu - ubuntu -c \"cd /home/ubuntu && git clone https://github.com/hcwongleo/demo-mcp-bedrock.git demo_mcp_on_amazon_bedrock\"\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Configuring Nova Pro only model\"\ncat > conf/config.json << EOL\n{\n\t\"models\": [\n\t\t{\n\t\t\t\"model_id\": \"us.amazon.nova-pro-v1:0\",\n\t\t\t\"model_name\": \"Amazon Nova Pro v1\"\n\t\t}\n\t],\n\t\"mcpServers\": {\n\t}\n}\nEOL\nchown -R ubuntu:ubuntu /home/ubuntu/demo_mcp_on_amazon_bedrock\nchmod 755 /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Creating necessary directories\"\nmkdir -p logs tmp\nchown -R ubuntu:ubuntu logs tmp\nlog \"Removing Nova Sonic components\"\nrm -f src/nova_sonic_manager.py src/websocket_manager.py || true\nlog \"Setting up Python environment\"\nsu - ubuntu -c \"\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock && \\\nexport PATH=\"/home/ubuntu/.local/bin:$PATH\" && \\\npython3.12 -m venv .venv && \\\nsource .venv/bin/activate && \\\npip install --upgrade pip && \\\npip install uv && \\\nuv sync --no-dev || pip install boto3 botocore fastapi uvicorn mcp openai aiohttp python-dotenv requests pandas pytz rx streamlit streamlit-cookies-controller streamlit-local-storage tzdata uvicorn websockets\n\"\nlog \"Configuring environment\"\ncat > .env << EOL\nAWS_REGION=us-east-1\nLOG_DIR=./logs\nCHATBOT_SERVICE_PORT=8502\nMCP_SERVICE_HOST=127.0.0.1\nMCP_SERVICE_PORT=7002\nMCP_BASE_URL=http://127.0.0.1:7002\nAPI_KEY=BedrockMcpStackcdk112545\nEOL\nchown ubuntu:ubuntu .env\nchmod 600 .env\nlog \"Creating startup script\"\ncat > start_services_local.sh << EOL\n#!/bin/bash\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\nsource .venv/bin/activate\nexport $(grep -v \"^#\" .env | xargs)\nexport PYTHONPATH=./src:$PYTHONPATH\n\n# Create log directories\nmkdir -p ${LOG_DIR}\n\n# Kill any existing processes\npkill -f \"python.*main.py\" || true\npkill -f \"streamlit\" || true\nsleep 3\n\n# Start MCP service\necho \"$(date): Starting MCP service\" >> ${LOG_DIR}/startup.log\nnohup python src/main.py \\\n    --mcp-conf conf/config.json \\\n    --user-conf conf/user_mcp_config.json \\\n    --host ${MCP_SERVICE_HOST} \\\n    --port ${MCP_SERVICE_PORT} \\\n    > ${LOG_DIR}/mcp.log 2>&1 &\nMCP_PID=$!\necho $MCP_PID > ${LOG_DIR}/mcp.pid\n\n# Wait for MCP service to start\nsleep 15\n\n# Check if MCP service is running\nif ! kill -0 $MCP_PID 2>/dev/null; then\n    echo \"$(date): MCP service failed to start\" >> ${LOG_DIR}/startup.log\n    exit 1\nfi\n\n# Start Streamlit service\necho \"$(date): Starting Streamlit service\" >> ${LOG_DIR}/startup.log\nnohup streamlit run chatbot.py \\\n    --server.port ${CHATBOT_SERVICE_PORT} \\\n    --server.address 0.0.0.0 \\\n    --server.headless true \\\n    > ${LOG_DIR}/streamlit.log 2>&1 &\nSTREAMLIT_PID=$!\necho $STREAMLIT_PID > ${LOG_DIR}/streamlit.pid\n\necho \"$(date): Services started - MCP: $MCP_PID, Streamlit: $STREAMLIT_PID\" >> ${LOG_DIR}/startup.log\necho \"Services started successfully!\"\nEOL\nchmod +x start_services_local.sh\nchown ubuntu:ubuntu start_services_local.sh\nlog \"Creating systemd service\"\ncat > /etc/systemd/system/mcp-services.service << EOL\n[Unit]\nDescription=MCP Services (Local Code)\nAfter=network.target\nWants=network-online.target\n\n[Service]\nType=forking\nUser=ubuntu\nGroup=ubuntu\nEnvironment=\"HOME=/home/ubuntu\"\nEnvironment=\"PATH=/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\nWorkingDirectory=/home/ubuntu/demo_mcp_on_amazon_bedrock\nExecStart=/home/ubuntu/demo_mcp_on_amazon_bedrock/start_services_local.sh\nRestart=always\nRestartSec=30\nStandardOutput=journal\nStandardError=journal\n\n[Install]\nWantedBy=multi-user.target\nEOL\nlog \"Enabling and starting services\"\nsystemctl daemon-reload\nsystemctl enable mcp-services\nsleep 10\nsystemctl start mcp-services\nsleep 15\nsystemctl status mcp-services >> /var/log/mcp-deployment.log 2>&1 || true\nlog \"MCP deployment completed with local code\"\ncat > /home/ubuntu/check_services.sh << EOL\n#!/bin/bash\necho \"=== Service Status ===\"\nsystemctl status mcp-services --no-pager\necho \"=== Process Status ===\"\nps aux | grep -E \"(python|streamlit)\" | grep -v grep\necho \"=== Port Status ===\"\nss -tlnp | grep -E \"(7002|8502)\"\necho \"=== Configuration ===\"\ncat /home/ubuntu/demo_mcp_on_amazon_bedrock/conf/config.json\necho \"=== Recent Logs ===\"\ntail -20 /home/ubuntu/demo_mcp_on_amazon_bedrock/logs/*.log 2>/dev/null || echo \"No logs found\"\necho \"=== Streamlit Health ===\"\ncurl -s http://localhost:8502 > /dev/null && echo \"Streamlit responding\" || echo \"Streamlit not responding\"\nEOL\nchmod +x /home/ubuntu/check_services.sh\nchown ubuntu:ubuntu /home/ubuntu/check_services.sh"
+                        "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nset -e\nlog() { echo \"$(date): $1\" | tee -a /var/log/mcp-deployment.log; }\nlog \"Starting MCP deployment with local code\"\nexport HOME=/root\nexport PATH=\"/usr/local/bin:$PATH\"\nexport DEBIAN_FRONTEND=noninteractive\nlog \"Updating system packages\"\napt-get update -y\napt-get install -y software-properties-common curl wget git build-essential unzip\nlog \"Installing AWS CLI\"\ncurl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\"\nunzip awscliv2.zip\n./aws/install\nrm -rf aws awscliv2.zip\nlog \"Installing Python 3.12\"\nadd-apt-repository -y ppa:deadsnakes/ppa\napt-get update -y\napt-get install -y python3.12 python3.12-venv python3.12-dev python3-pip\nlog \"Installing Node.js\"\ncurl -fsSL https://deb.nodesource.com/setup_22.x | bash -\napt-get install -y nodejs\nlog \"Installing system dependencies\"\napt-get install -y portaudio19-dev libasound2-dev libportaudio2 libportaudiocpp0\nlog \"Setting up ubuntu user environment\"\nsu - ubuntu -c \"curl -LsSf https://astral.sh/uv/install.sh | sh\"\necho 'export PATH=\"/home/ubuntu/.local/bin:$PATH\"' >> /home/ubuntu/.bashrc\nlog \"Creating project directory\"\nmkdir -p /home/ubuntu/demo_mcp_on_amazon_bedrock\nchown ubuntu:ubuntu /home/ubuntu/demo_mcp_on_amazon_bedrock\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Cloning application code from GitHub\"\nsu - ubuntu -c \"cd /home/ubuntu && git clone https://github.com/hcwongleo/demo-mcp-bedrock.git demo_mcp_on_amazon_bedrock\"\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Configuring Nova Pro only model\"\ncat > conf/config.json << EOL\n{\n\t\"models\": [\n\t\t{\n\t\t\t\"model_id\": \"us.amazon.nova-pro-v1:0\",\n\t\t\t\"model_name\": \"Amazon Nova Pro v1\"\n\t\t}\n\t],\n\t\"mcpServers\": {\n\t}\n}\nEOL\nchown -R ubuntu:ubuntu /home/ubuntu/demo_mcp_on_amazon_bedrock\nchmod 755 /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Creating necessary directories\"\nmkdir -p logs tmp\nchown -R ubuntu:ubuntu logs tmp\nlog \"Removing Nova Sonic components\"\nrm -f src/nova_sonic_manager.py src/websocket_manager.py || true\nlog \"Setting up Python environment\"\nsu - ubuntu -c \"\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock && \\\nexport PATH=\"/home/ubuntu/.local/bin:$PATH\" && \\\npython3.12 -m venv .venv && \\\nsource .venv/bin/activate && \\\npip install --upgrade pip && \\\npip install uv && \\\nuv sync --no-dev || pip install boto3 botocore fastapi uvicorn mcp openai aiohttp python-dotenv requests pandas pytz rx streamlit streamlit-cookies-controller streamlit-local-storage tzdata uvicorn websockets\n\"\nlog \"Configuring environment\"\ncat > .env << EOL\nAWS_REGION=us-east-1\nLOG_DIR=./logs\nCHATBOT_SERVICE_PORT=8502\nMCP_SERVICE_HOST=127.0.0.1\nMCP_SERVICE_PORT=7002\nMCP_BASE_URL=http://127.0.0.1:7002\nAPI_KEY=BedrockMcpStackcdk123207\nEOL\nchown ubuntu:ubuntu .env\nchmod 600 .env\nlog \"Creating startup script\"\ncat > start_services_simple.sh << EOL\n#!/bin/bash\nset -e\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\n\n# Source environment\nsource .venv/bin/activate\nexport $(grep -v \"^#\" .env | xargs)\nexport PYTHONPATH=./src:$PYTHONPATH\n\n# Create log directories\nmkdir -p logs\n\n# Function to start MCP service\nstart_mcp() {\n    echo \"$(date): Starting MCP service\"\n    python src/main.py \\\n        --mcp-conf conf/config.json \\\n        --user-conf conf/user_mcp_config.json \\\n        --host 127.0.0.1 \\\n        --port 7002 &\n    MCP_PID=$!\n    echo $MCP_PID > logs/mcp.pid\n    \n    # Wait for MCP to be ready\n    for i in {1..30}; do\n        if curl -s http://127.0.0.1:7002/health > /dev/null 2>&1; then\n            echo \"MCP service ready\"\n            break\n        fi\n        sleep 2\n    done\n}\n\n# Function to start Streamlit\nstart_streamlit() {\n    echo \"$(date): Starting Streamlit service\"\n    streamlit run chatbot.py \\\n        --server.port 8502 \\\n        --server.address 0.0.0.0 \\\n        --server.headless true &\n    STREAMLIT_PID=$!\n    echo $STREAMLIT_PID > logs/streamlit.pid\n}\n\n# Cleanup function\ncleanup() {\n    echo \"Cleaning up processes...\"\n    if [ -f logs/mcp.pid ]; then\n        kill $(cat logs/mcp.pid) 2>/dev/null || true\n    fi\n    if [ -f logs/streamlit.pid ]; then\n        kill $(cat logs/streamlit.pid) 2>/dev/null || true\n    fi\n    exit 0\n}\n\n# Set up signal handlers\ntrap cleanup SIGTERM SIGINT\n\n# Start services\nstart_mcp\nstart_streamlit\n\n# Keep the script running\necho \"Services started, waiting...\"\nwait\nEOL\nchmod +x start_services_simple.sh\nchown ubuntu:ubuntu start_services_simple.sh\nlog \"Creating systemd service\"\ncat > /etc/systemd/system/mcp-services.service << EOL\n[Unit]\nDescription=MCP Services (Local Code)\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nType=simple\nUser=ubuntu\nGroup=ubuntu\nEnvironment=\"HOME=/home/ubuntu\"\nEnvironment=\"PATH=/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\nWorkingDirectory=/home/ubuntu/demo_mcp_on_amazon_bedrock\nExecStart=/bin/bash /home/ubuntu/demo_mcp_on_amazon_bedrock/start_services_simple.sh\nRestart=always\nRestartSec=10\nStandardOutput=journal\nStandardError=journal\nKillMode=mixed\nTimeoutStartSec=120\n\n[Install]\nWantedBy=multi-user.target\nEOL\nlog \"Enabling and starting services\"\nsystemctl daemon-reload\nsystemctl enable mcp-services\nsleep 10\nsystemctl start mcp-services\nsleep 15\nsystemctl status mcp-services >> /var/log/mcp-deployment.log 2>&1 || true\nlog \"MCP deployment completed with local code\"\ncat > /home/ubuntu/check_services.sh << EOL\n#!/bin/bash\necho \"=== Service Status ===\"\nsystemctl status mcp-services --no-pager\necho \"=== Process Status ===\"\nps aux | grep -E \"(python|streamlit)\" | grep -v grep\necho \"=== Port Status ===\"\nss -tlnp | grep -E \"(7002|8502)\"\necho \"=== Configuration ===\"\ncat /home/ubuntu/demo_mcp_on_amazon_bedrock/conf/config.json\necho \"=== Recent Logs ===\"\ntail -20 /home/ubuntu/demo_mcp_on_amazon_bedrock/logs/*.log 2>/dev/null || echo \"No logs found\"\necho \"=== Streamlit Health ===\"\ncurl -s http://localhost:8502 > /dev/null && echo \"Streamlit responding\" || echo \"Streamlit not responding\"\nEOL\nchmod +x /home/ubuntu/check_services.sh\nchown ubuntu:ubuntu /home/ubuntu/check_services.sh"
                       }
                     },
                     "tagSpecifications": [
@@ -1090,7 +1090,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "BedrockMcpStack-cdk112545/MCP-LaunchTemplate"
+                            "value": "BedrockMcpStack-cdk123207/MCP-LaunchTemplate"
                           }
                         ]
                       }
@@ -1110,7 +1110,7 @@
           },
           "SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": {
             "id": "SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
-            "path": "BedrockMcpStack-cdk112545/SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
+            "path": "BedrockMcpStack-cdk123207/SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.177.0"
@@ -1118,7 +1118,7 @@
           },
           "SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118": {
             "id": "SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118",
-            "path": "BedrockMcpStack-cdk112545/SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118",
+            "path": "BedrockMcpStack-cdk123207/SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.177.0"
@@ -1126,11 +1126,11 @@
           },
           "MCP-ASG": {
             "id": "MCP-ASG",
-            "path": "BedrockMcpStack-cdk112545/MCP-ASG",
+            "path": "BedrockMcpStack-cdk123207/MCP-ASG",
             "children": {
               "ASG": {
                 "id": "ASG",
-                "path": "BedrockMcpStack-cdk112545/MCP-ASG/ASG",
+                "path": "BedrockMcpStack-cdk123207/MCP-ASG/ASG",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::AutoScaling::AutoScalingGroup",
                   "aws:cdk:cloudformation:props": {
@@ -1175,7 +1175,7 @@
           },
           "StreamlitEndpoint": {
             "id": "StreamlitEndpoint",
-            "path": "BedrockMcpStack-cdk112545/StreamlitEndpoint",
+            "path": "BedrockMcpStack-cdk123207/StreamlitEndpoint",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.177.0"
@@ -1183,7 +1183,7 @@
           },
           "AllowedCIDR": {
             "id": "AllowedCIDR",
-            "path": "BedrockMcpStack-cdk112545/AllowedCIDR",
+            "path": "BedrockMcpStack-cdk123207/AllowedCIDR",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.177.0"
@@ -1191,7 +1191,7 @@
           },
           "DeploymentMethod": {
             "id": "DeploymentMethod",
-            "path": "BedrockMcpStack-cdk112545/DeploymentMethod",
+            "path": "BedrockMcpStack-cdk123207/DeploymentMethod",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.177.0"
@@ -1199,7 +1199,7 @@
           },
           "Authentication": {
             "id": "Authentication",
-            "path": "BedrockMcpStack-cdk112545/Authentication",
+            "path": "BedrockMcpStack-cdk123207/Authentication",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.177.0"
@@ -1207,11 +1207,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "BedrockMcpStack-cdk112545/CDKMetadata",
+            "path": "BedrockMcpStack-cdk123207/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "BedrockMcpStack-cdk112545/CDKMetadata/Default",
+                "path": "BedrockMcpStack-cdk123207/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.177.0"
@@ -1225,7 +1225,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "BedrockMcpStack-cdk112545/BootstrapVersion",
+            "path": "BedrockMcpStack-cdk123207/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.177.0"
@@ -1233,7 +1233,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "BedrockMcpStack-cdk112545/CheckBootstrapVersion",
+            "path": "BedrockMcpStack-cdk123207/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.177.0"

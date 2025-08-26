@@ -1,0 +1,967 @@
+{
+ "Description": "Bedrock MCP Demo Stack (Local Code)",
+ "Resources": {
+  "MCPVPC68ADF9D1": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/Resource"
+   }
+  },
+  "MCPVPCPublicSubnet1Subnet426F3236": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "CidrBlock": "10.0.0.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1/Subnet"
+   }
+  },
+  "MCPVPCPublicSubnet1RouteTable9B162551": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1/RouteTable"
+   }
+  },
+  "MCPVPCPublicSubnet1RouteTableAssociationE8154795": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MCPVPCPublicSubnet1RouteTable9B162551"
+    },
+    "SubnetId": {
+     "Ref": "MCPVPCPublicSubnet1Subnet426F3236"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1/RouteTableAssociation"
+   }
+  },
+  "MCPVPCPublicSubnet1DefaultRoute12136EE5": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "MCPVPCIGWEE21D79C"
+    },
+    "RouteTableId": {
+     "Ref": "MCPVPCPublicSubnet1RouteTable9B162551"
+    }
+   },
+   "DependsOn": [
+    "MCPVPCVPCGW2A43A4FA"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1/DefaultRoute"
+   }
+  },
+  "MCPVPCPublicSubnet1EIPDB7D7A07": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1/EIP"
+   }
+  },
+  "MCPVPCPublicSubnet1NATGateway718A439E": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "MCPVPCPublicSubnet1EIPDB7D7A07",
+      "AllocationId"
+     ]
+    },
+    "SubnetId": {
+     "Ref": "MCPVPCPublicSubnet1Subnet426F3236"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1"
+     }
+    ]
+   },
+   "DependsOn": [
+    "MCPVPCPublicSubnet1DefaultRoute12136EE5",
+    "MCPVPCPublicSubnet1RouteTableAssociationE8154795"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet1/NATGateway"
+   }
+  },
+  "MCPVPCPublicSubnet2Subnet2C6BF23A": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1b",
+    "CidrBlock": "10.0.1.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet2/Subnet"
+   }
+  },
+  "MCPVPCPublicSubnet2RouteTableDF4F90E1": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet2/RouteTable"
+   }
+  },
+  "MCPVPCPublicSubnet2RouteTableAssociation1F2533C4": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MCPVPCPublicSubnet2RouteTableDF4F90E1"
+    },
+    "SubnetId": {
+     "Ref": "MCPVPCPublicSubnet2Subnet2C6BF23A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet2/RouteTableAssociation"
+   }
+  },
+  "MCPVPCPublicSubnet2DefaultRouteAC586835": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "MCPVPCIGWEE21D79C"
+    },
+    "RouteTableId": {
+     "Ref": "MCPVPCPublicSubnet2RouteTableDF4F90E1"
+    }
+   },
+   "DependsOn": [
+    "MCPVPCVPCGW2A43A4FA"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PublicSubnet2/DefaultRoute"
+   }
+  },
+  "MCPVPCPrivateSubnet1Subnet2890C8B8": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "CidrBlock": "10.0.2.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet1/Subnet"
+   }
+  },
+  "MCPVPCPrivateSubnet1RouteTable30C7F3CF": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet1/RouteTable"
+   }
+  },
+  "MCPVPCPrivateSubnet1RouteTableAssociationF49FA739": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MCPVPCPrivateSubnet1RouteTable30C7F3CF"
+    },
+    "SubnetId": {
+     "Ref": "MCPVPCPrivateSubnet1Subnet2890C8B8"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet1/RouteTableAssociation"
+   }
+  },
+  "MCPVPCPrivateSubnet1DefaultRouteB165E393": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "MCPVPCPublicSubnet1NATGateway718A439E"
+    },
+    "RouteTableId": {
+     "Ref": "MCPVPCPrivateSubnet1RouteTable30C7F3CF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet1/DefaultRoute"
+   }
+  },
+  "MCPVPCPrivateSubnet2Subnet938C6756": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "us-east-1b",
+    "CidrBlock": "10.0.3.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet2/Subnet"
+   }
+  },
+  "MCPVPCPrivateSubnet2RouteTableB7666F52": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet2/RouteTable"
+   }
+  },
+  "MCPVPCPrivateSubnet2RouteTableAssociationA22D6EEB": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "MCPVPCPrivateSubnet2RouteTableB7666F52"
+    },
+    "SubnetId": {
+     "Ref": "MCPVPCPrivateSubnet2Subnet938C6756"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet2/RouteTableAssociation"
+   }
+  },
+  "MCPVPCPrivateSubnet2DefaultRouteFCCD51AB": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "MCPVPCPublicSubnet1NATGateway718A439E"
+    },
+    "RouteTableId": {
+     "Ref": "MCPVPCPrivateSubnet2RouteTableB7666F52"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/PrivateSubnet2/DefaultRoute"
+   }
+  },
+  "MCPVPCIGWEE21D79C": {
+   "Type": "AWS::EC2::InternetGateway",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "BedrockMcpStack-cdk121558/MCP-VPC"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/IGW"
+   }
+  },
+  "MCPVPCVPCGW2A43A4FA": {
+   "Type": "AWS::EC2::VPCGatewayAttachment",
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "MCPVPCIGWEE21D79C"
+    },
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/VPCGW"
+   }
+  },
+  "MCPVPCRestrictDefaultSecurityGroupCustomResourceB286BFAB": {
+   "Type": "Custom::VpcRestrictDefaultSG",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E",
+      "Arn"
+     ]
+    },
+    "DefaultSecurityGroupId": {
+     "Fn::GetAtt": [
+      "MCPVPC68ADF9D1",
+      "DefaultSecurityGroup"
+     ]
+    },
+    "Account": "214806110050"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-VPC/RestrictDefaultSecurityGroupCustomResource/Default"
+   }
+  },
+  "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyName": "Inline",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Action": [
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:AuthorizeSecurityGroupEgress",
+          "ec2:RevokeSecurityGroupIngress",
+          "ec2:RevokeSecurityGroupEgress"
+         ],
+         "Resource": [
+          {
+           "Fn::Join": [
+            "",
+            [
+             "arn:aws:ec2:us-east-1:214806110050:security-group/",
+             {
+              "Fn::GetAtt": [
+               "MCPVPC68ADF9D1",
+               "DefaultSecurityGroup"
+              ]
+             }
+            ]
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role"
+   }
+  },
+  "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-cdk121558-assets-214806110050-us-east-1",
+     "S3Key": "7fa1e366ee8a9ded01fc355f704cff92bfd179574e6f9cfee800a3541df1b200.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "__entrypoint__.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs20.x",
+    "Description": "Lambda function for removing all inbound/outbound rules from the VPC default security group"
+   },
+   "DependsOn": [
+    "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
+    "aws:asset:path": "asset.7fa1e366ee8a9ded01fc355f704cff92bfd179574e6f9cfee800a3541df1b200",
+    "aws:asset:property": "Code"
+   }
+  },
+  "MCPALBSGF12ABCE6": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Security group for Application Load Balancer",
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-ALB-SG/Resource"
+   }
+  },
+  "MCPALBSGto00000ALLTRAFFIC6C982DDC": {
+   "Type": "AWS::EC2::SecurityGroupEgress",
+   "Properties": {
+    "CidrIp": "0.0.0.0/0",
+    "Description": "Allow all outbound traffic by default",
+    "GroupId": {
+     "Fn::GetAtt": [
+      "MCPALBSGF12ABCE6",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "-1"
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-ALB-SG/to 0.0.0.0_0:ALL TRAFFIC"
+   }
+  },
+  "MCPALBSGfrom4000238502BAC544A1": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "CidrIp": "4.0.0.0/23",
+    "Description": "Streamlit UI access from 4.0.0.0/23",
+    "FromPort": 8502,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "MCPALBSGF12ABCE6",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "ToPort": 8502
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-ALB-SG/from 4.0.0.0_23:8502"
+   }
+  },
+  "MCPEC2SG98630C2E": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Security group for EC2 instances",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "SecurityGroupIngress": [
+     {
+      "Description": "Streamlit UI from ALB",
+      "FromPort": 8502,
+      "IpProtocol": "tcp",
+      "SourceSecurityGroupId": {
+       "Fn::GetAtt": [
+        "MCPALBSGF12ABCE6",
+        "GroupId"
+       ]
+      },
+      "ToPort": 8502
+     }
+    ],
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-EC2-SG/Resource"
+   }
+  },
+  "MCPEC2SGfromBedrockMcpStackcdk121558MCPALBSG2530044F850215FECA90": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Load balancer to target",
+    "FromPort": 8502,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "MCPEC2SG98630C2E",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "MCPALBSGF12ABCE6",
+      "GroupId"
+     ]
+    },
+    "ToPort": 8502
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-EC2-SG/from BedrockMcpStackcdk121558MCPALBSG2530044F:8502"
+   }
+  },
+  "EC2Role24AC9335": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ec2.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSSMManagedInstanceCore"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/EC2-Role/Resource"
+   }
+  },
+  "EC2RoleDefaultPolicy98645454": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "bedrock:InvokeModel*",
+        "bedrock:ListFoundationModels"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "EC2RoleDefaultPolicy98645454",
+    "Roles": [
+     {
+      "Ref": "EC2Role24AC9335"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/EC2-Role/DefaultPolicy/Resource"
+   }
+  },
+  "MCPALBD851607E": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Scheme": "internet-facing",
+    "SecurityGroups": [
+     {
+      "Fn::GetAtt": [
+       "MCPALBSGF12ABCE6",
+       "GroupId"
+      ]
+     }
+    ],
+    "Subnets": [
+     {
+      "Ref": "MCPVPCPublicSubnet1Subnet426F3236"
+     },
+     {
+      "Ref": "MCPVPCPublicSubnet2Subnet2C6BF23A"
+     }
+    ],
+    "Type": "application"
+   },
+   "DependsOn": [
+    "MCPVPCPublicSubnet1DefaultRoute12136EE5",
+    "MCPVPCPublicSubnet1RouteTableAssociationE8154795",
+    "MCPVPCPublicSubnet2DefaultRouteAC586835",
+    "MCPVPCPublicSubnet2RouteTableAssociation1F2533C4"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-ALB/Resource"
+   }
+  },
+  "MCPALBStreamlit3AF4EA57": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "MCPALBStreamlitStreamlitTargetGroup14A4FF23"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "MCPALBD851607E"
+    },
+    "Port": 8502,
+    "Protocol": "HTTP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-ALB/Streamlit/Resource"
+   }
+  },
+  "MCPALBStreamlitStreamlitTargetGroup14A4FF23": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "HealthCheckIntervalSeconds": 30,
+    "HealthCheckPath": "/",
+    "HealthCheckTimeoutSeconds": 10,
+    "HealthyThresholdCount": 2,
+    "Matcher": {
+     "HttpCode": "200,302"
+    },
+    "Port": 8502,
+    "Protocol": "HTTP",
+    "TargetGroupAttributes": [
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     }
+    ],
+    "TargetType": "instance",
+    "UnhealthyThresholdCount": 3,
+    "VpcId": {
+     "Ref": "MCPVPC68ADF9D1"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-ALB/Streamlit/Streamlit-TargetGroup/Resource"
+   }
+  },
+  "MCPLaunchTemplateProfileA47FC432": {
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "EC2Role24AC9335"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-LaunchTemplate/Profile"
+   }
+  },
+  "MCPLaunchTemplate3B203E88": {
+   "Type": "AWS::EC2::LaunchTemplate",
+   "Properties": {
+    "LaunchTemplateData": {
+     "BlockDeviceMappings": [
+      {
+       "DeviceName": "/dev/sda1",
+       "Ebs": {
+        "VolumeSize": 100,
+        "VolumeType": "gp3"
+       }
+      }
+     ],
+     "IamInstanceProfile": {
+      "Arn": {
+       "Fn::GetAtt": [
+        "MCPLaunchTemplateProfileA47FC432",
+        "Arn"
+       ]
+      }
+     },
+     "ImageId": {
+      "Ref": "SsmParameterValueawsservicecanonicalubuntuserver2204stablecurrentamd64hvmebsgp2amiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+     },
+     "InstanceType": "c5.xlarge",
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "MCPEC2SG98630C2E",
+        "GroupId"
+       ]
+      }
+     ],
+     "TagSpecifications": [
+      {
+       "ResourceType": "instance",
+       "Tags": [
+        {
+         "Key": "Name",
+         "Value": "BedrockMcpStack-cdk121558/MCP-LaunchTemplate"
+        }
+       ]
+      },
+      {
+       "ResourceType": "volume",
+       "Tags": [
+        {
+         "Key": "Name",
+         "Value": "BedrockMcpStack-cdk121558/MCP-LaunchTemplate"
+        }
+       ]
+      }
+     ],
+     "UserData": {
+      "Fn::Base64": "#!/bin/bash\n#!/bin/bash\nset -e\nlog() { echo \"$(date): $1\" | tee -a /var/log/mcp-deployment.log; }\nlog \"Starting MCP deployment with local code\"\nexport HOME=/root\nexport PATH=\"/usr/local/bin:$PATH\"\nexport DEBIAN_FRONTEND=noninteractive\nlog \"Updating system packages\"\napt-get update -y\napt-get install -y software-properties-common curl wget git build-essential unzip\nlog \"Installing AWS CLI\"\ncurl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\"\nunzip awscliv2.zip\n./aws/install\nrm -rf aws awscliv2.zip\nlog \"Installing Python 3.12\"\nadd-apt-repository -y ppa:deadsnakes/ppa\napt-get update -y\napt-get install -y python3.12 python3.12-venv python3.12-dev python3-pip\nlog \"Installing Node.js\"\ncurl -fsSL https://deb.nodesource.com/setup_22.x | bash -\napt-get install -y nodejs\nlog \"Installing system dependencies\"\napt-get install -y portaudio19-dev libasound2-dev libportaudio2 libportaudiocpp0\nlog \"Setting up ubuntu user environment\"\nsu - ubuntu -c \"curl -LsSf https://astral.sh/uv/install.sh | sh\"\necho 'export PATH=\"/home/ubuntu/.local/bin:$PATH\"' >> /home/ubuntu/.bashrc\nlog \"Creating project directory\"\nmkdir -p /home/ubuntu/demo_mcp_on_amazon_bedrock\nchown ubuntu:ubuntu /home/ubuntu/demo_mcp_on_amazon_bedrock\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Cloning application code from GitHub\"\nsu - ubuntu -c \"cd /home/ubuntu && git clone https://github.com/hcwongleo/demo-mcp-bedrock.git demo_mcp_on_amazon_bedrock\"\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Configuring Nova Pro only model\"\ncat > conf/config.json << EOL\n{\n\t\"models\": [\n\t\t{\n\t\t\t\"model_id\": \"us.amazon.nova-pro-v1:0\",\n\t\t\t\"model_name\": \"Amazon Nova Pro v1\"\n\t\t}\n\t],\n\t\"mcpServers\": {\n\t}\n}\nEOL\nchown -R ubuntu:ubuntu /home/ubuntu/demo_mcp_on_amazon_bedrock\nchmod 755 /home/ubuntu/demo_mcp_on_amazon_bedrock\nlog \"Creating necessary directories\"\nmkdir -p logs tmp\nchown -R ubuntu:ubuntu logs tmp\nlog \"Removing Nova Sonic components\"\nrm -f src/nova_sonic_manager.py src/websocket_manager.py || true\nlog \"Setting up Python environment\"\nsu - ubuntu -c \"\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock && \\\nexport PATH=\"/home/ubuntu/.local/bin:$PATH\" && \\\npython3.12 -m venv .venv && \\\nsource .venv/bin/activate && \\\npip install --upgrade pip && \\\npip install uv && \\\nuv sync --no-dev || pip install boto3 botocore fastapi uvicorn mcp openai aiohttp python-dotenv requests pandas pytz rx streamlit streamlit-cookies-controller streamlit-local-storage tzdata uvicorn websockets\n\"\nlog \"Configuring environment\"\ncat > .env << EOL\nAWS_REGION=us-east-1\nLOG_DIR=./logs\nCHATBOT_SERVICE_PORT=8502\nMCP_SERVICE_HOST=127.0.0.1\nMCP_SERVICE_PORT=7002\nMCP_BASE_URL=http://127.0.0.1:7002\nAPI_KEY=BedrockMcpStackcdk121558\nEOL\nchown ubuntu:ubuntu .env\nchmod 600 .env\nlog \"Creating startup script\"\ncat > start_services_simple.sh << EOL\n#!/bin/bash\nset -e\ncd /home/ubuntu/demo_mcp_on_amazon_bedrock\n\n# Source environment\nsource .venv/bin/activate\nexport $(grep -v \"^#\" .env | xargs)\nexport PYTHONPATH=./src:$PYTHONPATH\n\n# Create log directories\nmkdir -p logs\n\n# Function to start MCP service\nstart_mcp() {\n    echo \"$(date): Starting MCP service\"\n    python src/main.py \\\n        --mcp-conf conf/config.json \\\n        --user-conf conf/user_mcp_config.json \\\n        --host 127.0.0.1 \\\n        --port 7002 &\n    MCP_PID=$!\n    echo $MCP_PID > logs/mcp.pid\n    \n    # Wait for MCP to be ready\n    for i in {1..30}; do\n        if curl -s http://127.0.0.1:7002/health > /dev/null 2>&1; then\n            echo \"MCP service ready\"\n            break\n        fi\n        sleep 2\n    done\n}\n\n# Function to start Streamlit\nstart_streamlit() {\n    echo \"$(date): Starting Streamlit service\"\n    streamlit run chatbot.py \\\n        --server.port 8502 \\\n        --server.address 0.0.0.0 \\\n        --server.headless true &\n    STREAMLIT_PID=$!\n    echo $STREAMLIT_PID > logs/streamlit.pid\n}\n\n# Cleanup function\ncleanup() {\n    echo \"Cleaning up processes...\"\n    if [ -f logs/mcp.pid ]; then\n        kill $(cat logs/mcp.pid) 2>/dev/null || true\n    fi\n    if [ -f logs/streamlit.pid ]; then\n        kill $(cat logs/streamlit.pid) 2>/dev/null || true\n    fi\n    exit 0\n}\n\n# Set up signal handlers\ntrap cleanup SIGTERM SIGINT\n\n# Start services\nstart_mcp\nstart_streamlit\n\n# Keep the script running\necho \"Services started, waiting...\"\nwait\nEOL\nchmod +x start_services_simple.sh\nchown ubuntu:ubuntu start_services_simple.sh\nlog \"Creating systemd service\"\ncat > /etc/systemd/system/mcp-services.service << EOL\n[Unit]\nDescription=MCP Services (Local Code)\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nType=simple\nUser=ubuntu\nGroup=ubuntu\nEnvironment=\"HOME=/home/ubuntu\"\nEnvironment=\"PATH=/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\nWorkingDirectory=/home/ubuntu/demo_mcp_on_amazon_bedrock\nExecStart=/bin/bash /home/ubuntu/demo_mcp_on_amazon_bedrock/start_services_simple.sh\nRestart=always\nRestartSec=10\nStandardOutput=journal\nStandardError=journal\nKillMode=mixed\nTimeoutStartSec=120\n\n[Install]\nWantedBy=multi-user.target\nEOL\nlog \"Enabling and starting services\"\nsystemctl daemon-reload\nsystemctl enable mcp-services\nsleep 10\nsystemctl start mcp-services\nsleep 15\nsystemctl status mcp-services >> /var/log/mcp-deployment.log 2>&1 || true\nlog \"MCP deployment completed with local code\"\ncat > /home/ubuntu/check_services.sh << EOL\n#!/bin/bash\necho \"=== Service Status ===\"\nsystemctl status mcp-services --no-pager\necho \"=== Process Status ===\"\nps aux | grep -E \"(python|streamlit)\" | grep -v grep\necho \"=== Port Status ===\"\nss -tlnp | grep -E \"(7002|8502)\"\necho \"=== Configuration ===\"\ncat /home/ubuntu/demo_mcp_on_amazon_bedrock/conf/config.json\necho \"=== Recent Logs ===\"\ntail -20 /home/ubuntu/demo_mcp_on_amazon_bedrock/logs/*.log 2>/dev/null || echo \"No logs found\"\necho \"=== Streamlit Health ===\"\ncurl -s http://localhost:8502 > /dev/null && echo \"Streamlit responding\" || echo \"Streamlit not responding\"\nEOL\nchmod +x /home/ubuntu/check_services.sh\nchown ubuntu:ubuntu /home/ubuntu/check_services.sh"
+     }
+    },
+    "TagSpecifications": [
+     {
+      "ResourceType": "launch-template",
+      "Tags": [
+       {
+        "Key": "Name",
+        "Value": "BedrockMcpStack-cdk121558/MCP-LaunchTemplate"
+       }
+      ]
+     }
+    ]
+   },
+   "DependsOn": [
+    "EC2RoleDefaultPolicy98645454",
+    "EC2Role24AC9335"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-LaunchTemplate/Resource"
+   }
+  },
+  "MCPASG42CF5D6A": {
+   "Type": "AWS::AutoScaling::AutoScalingGroup",
+   "Properties": {
+    "LaunchTemplate": {
+     "LaunchTemplateId": {
+      "Ref": "MCPLaunchTemplate3B203E88"
+     },
+     "Version": {
+      "Fn::GetAtt": [
+       "MCPLaunchTemplate3B203E88",
+       "LatestVersionNumber"
+      ]
+     }
+    },
+    "MaxSize": "1",
+    "MinSize": "1",
+    "TargetGroupARNs": [
+     {
+      "Ref": "MCPALBStreamlitStreamlitTargetGroup14A4FF23"
+     }
+    ],
+    "VPCZoneIdentifier": [
+     {
+      "Ref": "MCPVPCPrivateSubnet1Subnet2890C8B8"
+     },
+     {
+      "Ref": "MCPVPCPrivateSubnet2Subnet938C6756"
+     }
+    ]
+   },
+   "UpdatePolicy": {
+    "AutoScalingScheduledAction": {
+     "IgnoreUnmodifiedGroupSizeProperties": true
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/MCP-ASG/ASG"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/32QQU/DMAyFfwv3LECFxLlMCE1CUK0TV+SmXjGkThU7m1DV/47WwjpAcLLf56fk2Zm9vL62F2ewl4Wr3xaeKtuXCu7NwF6ee3SZ7Z86Z5ZbfiqWpkiVJ1emilEPbO7WISluoPI485nlIsERKAU+mg/N7ao4lAfQO1Dcw7spIu1AcX54xYqR8WiYknyqXBXcS4uspkSXIun7XQypGzP8C26biCK/8Ionfg+J3csG287DFPU7GQxBa/t1mPYdaxE8uTHg3K1YFNhhEcOWPA4GPYiS8wHqCjywI252me3zrvPkxgvdB6hvxhnG8edTfeojUeRPz1d/Mt9AbFCP65/IwUDSIA48cWP7PGkoJ3F0/2TDYNYoIUWHZplEQzvLLf8xKmLYUY3xBgRNLoJaKjTEzXgkiNCiTvkfk3ZJB8OhRvsq57sss5dX9uLsVYgWMbFSi3Y91Q9psjL1tgIAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "BedrockMcpStack-cdk121558/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "SsmParameterValueawsservicecanonicalubuntuserver2204stablecurrentamd64hvmebsgp2amiidC96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+   "Default": "/aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id"
+  },
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/cdk121558/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Outputs": {
+  "StreamlitEndpoint": {
+   "Description": "Streamlit UI Endpoint",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "MCPALBD851607E",
+        "DNSName"
+       ]
+      },
+      ":8502"
+     ]
+    ]
+   }
+  },
+  "AllowedCIDR": {
+   "Description": "CIDR block allowed to access the application",
+   "Value": "4.0.0.0/23"
+  },
+  "DeploymentMethod": {
+   "Description": "How the application code is deployed",
+   "Value": "Git Clone from GitHub (with AWS CLI pre-installed)"
+  },
+  "Authentication": {
+   "Description": "Authentication method",
+   "Value": "Uses EC2 Instance Role (no API keys needed)"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

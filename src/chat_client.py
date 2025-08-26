@@ -37,6 +37,7 @@ class ChatClient:
         self.system = None
         self.cache_checkpoint = 0
         self.reset_checkpoint = 0
+        self.bedrock_client_pool = []  # Add for compatibility with ChatClientStream
 
     def _get_bedrock_client(self, runtime=True):
         """Create Bedrock client using EC2 IAM role credentials"""
