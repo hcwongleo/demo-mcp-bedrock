@@ -336,6 +336,11 @@ async def shutdown_event():
 
 app = FastAPI(lifespan=lifespan)
 
+# Health check endpoint
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+
 # 添加CORS中间件支持跨域请求和自定义头
 app.add_middleware(
     CORSMiddleware,
