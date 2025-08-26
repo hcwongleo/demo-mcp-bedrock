@@ -27,7 +27,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s',
 )
 logger = logging.getLogger(__name__)
-delimiter = "___"
+delimiter = "__"  # Use double underscore instead of triple
 tool_name_mapping = {}
 tool_name_mapping_r = {}
 class MCPClient:
@@ -51,8 +51,16 @@ class MCPClient:
         self.exit_stack = AsyncExitStack()
 
     @staticmethod
-    def normalize_tool_name( tool_name):
-        return tool_name.replace('-', '_').replace('/', '_').replace(':', '_')
+    def normalize_tool_name(tool_name):
+        """Normalize tool name to comply with Bedrock constraints: [a-zA-Z0-9_-]+"""
+        import re
+        # Replace invalid characters with underscores
+        normalized = re.sub(r'[^a-zA-Z0-9_-]', '_', tool_name)
+        # Replace multiple consecutive underscores with single underscore
+        normalized = re.sub(r'_{2,}', '_', normalized)
+        # Remove leading/trailing underscores
+        normalized = normalized.strip('_')
+        return normalized
     
     @staticmethod
     def get_tool_name4llm( server_id, tool_name, norm=True, ns_delimiter=delimiter):
