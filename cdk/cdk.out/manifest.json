@@ -1,0 +1,399 @@
+{
+  "version": "39.0.0",
+  "artifacts": {
+    "BedrockMcpStack-cdk101311.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "BedrockMcpStack-cdk101311.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/cdk101311/version"
+      }
+    },
+    "BedrockMcpStack-cdk101311": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://214806110050/us-east-1",
+      "properties": {
+        "templateFile": "BedrockMcpStack-cdk101311.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::214806110050:role/cdk-cdk101311-deploy-role-214806110050-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::214806110050:role/cdk-cdk101311-cfn-exec-role-214806110050-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-cdk101311-assets-214806110050-us-east-1/e02e9ccb709ce7f3015386dd8a897c486de2ebac9e0c60cdee32bef7ef71dc95.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/cdk101311/version",
+        "additionalDependencies": [
+          "BedrockMcpStack-cdk101311.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::214806110050:role/cdk-cdk101311-lookup-role-214806110050-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/cdk101311/version"
+        }
+      },
+      "dependencies": [
+        "BedrockMcpStack-cdk101311.assets"
+      ],
+      "metadata": {
+        "/BedrockMcpStack-cdk101311/MCP-CodeBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPCodeBucketA45CE5C0"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-CodeBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPCodeBucketPolicyBE904D71"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-CodeBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPCodeBucketAutoDeleteObjectsCustomResource67994699"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-CodeDeployment/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPCodeDeploymentAwsCliLayer35D3C9F2"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-CodeDeployment/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPCodeDeploymentCustomResourceF20AD5CE"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPC68ADF9D1"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet1Subnet426F3236"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet1RouteTable9B162551"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet1RouteTableAssociationE8154795"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet1DefaultRoute12136EE5"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet1EIPDB7D7A07"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet1NATGateway718A439E"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet2Subnet2C6BF23A"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet2RouteTableDF4F90E1"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet2RouteTableAssociation1F2533C4"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPublicSubnet2DefaultRouteAC586835"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPrivateSubnet1Subnet2890C8B8"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPrivateSubnet1RouteTable30C7F3CF"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPrivateSubnet1RouteTableAssociationF49FA739"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPrivateSubnet1DefaultRouteB165E393"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPrivateSubnet2Subnet938C6756"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPrivateSubnet2RouteTableB7666F52"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPrivateSubnet2RouteTableAssociationA22D6EEB"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCPrivateSubnet2DefaultRouteFCCD51AB"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCIGWEE21D79C"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCVPCGW2A43A4FA"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-VPC/RestrictDefaultSecurityGroupCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPVPCRestrictDefaultSecurityGroupCustomResourceB286BFAB"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::VpcRestrictDefaultSGCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-ALB-SG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPALBSGF12ABCE6"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-ALB-SG/to 0.0.0.0_0:ALL TRAFFIC": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPALBSGto00000ALLTRAFFIC6C982DDC"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-ALB-SG/from 4.0.0.0_23:8502": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPALBSGfrom4000238502BAC544A1"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-EC2-SG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPEC2SG98630C2E"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-EC2-SG/from BedrockMcpStackcdk101311MCPALBSGD174F14F:8502": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPEC2SGfromBedrockMcpStackcdk101311MCPALBSGD174F14F85028B4D647F"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/EC2-Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EC2Role24AC9335"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/EC2-Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EC2RoleDefaultPolicy98645454"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-ALB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPALBD851607E"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-ALB/Streamlit/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPALBStreamlit3AF4EA57"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-ALB/Streamlit/Streamlit-TargetGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPALBStreamlitStreamlitTargetGroup14A4FF23"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-LaunchTemplate/Profile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPLaunchTemplateProfileA47FC432"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-LaunchTemplate/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPLaunchTemplate3B203E88"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/SsmParameterValue:--aws--service--canonical--ubuntu--server--22.04--stable--current--amd64--hvm--ebs-gp2--ami-id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsservicecanonicalubuntuserver2204stablecurrentamd64hvmebsgp2amiidC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/MCP-ASG/ASG": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MCPASG42CF5D6A"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/StreamlitEndpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StreamlitEndpoint"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/CodeBucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CodeBucket"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/AllowedCIDR": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AllowedCIDR"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/Authentication": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Authentication"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/BedrockMcpStack-cdk101311/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "BedrockMcpStack-cdk101311"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

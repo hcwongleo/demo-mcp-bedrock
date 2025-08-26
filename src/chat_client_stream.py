@@ -36,8 +36,8 @@ NOVA_LITE_MODEL_ID = 'us.amazon.nova-lite-v1:0'
 class ChatClientStream(ChatClient):
     """Extended ChatClient with streaming support"""
     
-    def __init__(self,credential_file=''):
-        super().__init__(credential_file)
+    def __init__(self, region=''):
+        super().__init__(region)
         self.max_retries = 10 # Maximum number of retry attempts
         self.base_delay = 10 # Initial backoff delay in seconds
         self.max_delay = 60 # Maximum backoff delay in seconds
@@ -45,15 +45,8 @@ class ChatClientStream(ChatClient):
         self.stop_flags = {} # Dict to track stop flags for streams
     
     def get_bedrock_client_from_pool(self):
-        if self.bedrock_client_pool:
-            logger.info(f"get_bedrock_client_from_pool index: [{self.client_index}]")
-            if self.client_index and self.client_index %(len(self.bedrock_client_pool)-1) == 0:
-                self.client_index = 0
-            bedrock_client = self.bedrock_client_pool[self.client_index]
-            self.client_index += 1
-        else:
-            bedrock_client = self._get_bedrock_client()
-        return bedrock_client
+        """Get Bedrock client using IAM role"""
+        return self._get_bedrock_client()
 
         
     async def _process_stream_response(self, stream_id:str,response) -> AsyncIterator[Dict]:

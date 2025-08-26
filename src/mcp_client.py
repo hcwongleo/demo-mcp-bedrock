@@ -80,8 +80,8 @@ class MCPClient:
         await self.cleanup()
 
     async def handle_resource_change(params: NotificationParams):
-        print(f"资源变更类型: {params['changeType']}")
-        print(f"受影响URI: {params['resourceURIs']}")
+        print(f"Resource change type: {params['changeType']}")
+        print(f"Affected URIs: {params['resourceURIs']}")
     
     
     async def connect_to_server(self, server_script_path: str = "", server_script_args: list = [], 

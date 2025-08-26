@@ -13,7 +13,6 @@ from botocore.config import Config
 from dotenv import load_dotenv
 from mcp_client import MCPClient
 from utils import maybe_filter_to_n_most_recent_images,filter_tool_use_result
-import pandas as pd
 load_dotenv()  # load environment variables from .env
 
 
@@ -30,68 +29,28 @@ CLAUDE_4_OPUS_MODEL_ID = 'us.anthropic.claude-opus-4-20250514-v1:0'
 class ChatClient:
     """Bedrock simple chat wrapper"""
 
-    bedrock_client_pool = []
-
-    def __init__(self, credential_file='', access_key_id='', secret_access_key='', region=''):
-        self.env = {
-            'AWS_ACCESS_KEY_ID': access_key_id or os.environ.get('AWS_ACCESS_KEY_ID'),
-            'AWS_SECRET_ACCESS_KEY': secret_access_key or os.environ.get('AWS_SECRET_ACCESS_KEY'),
-            'AWS_REGION': region or os.environ.get('AWS_REGION'),
-        }
+    def __init__(self, region=''):
+        self.region = region or os.environ.get('AWS_REGION', 'us-east-1')
         
         # self.max_history = int(os.environ.get('MAX_HISTORY_TURN',5))*2
         self.messages = [] # History messages without system message
         self.system = None
         self.cache_checkpoint = 0
         self.reset_checkpoint = 0
-        
-        if credential_file:
-            credentials = pd.read_csv(credential_file)
-            for index, row in credentials.iterrows():
-                self.bedrock_client_pool.append(self._get_bedrock_client(ak=row['ak'],sk=row['sk']))
-            logger.info(f"Loaded {len(self.bedrock_client_pool)} bedrock clients from {credential_file}")
 
-    def _get_bedrock_client(self, ak='', sk='', region='', runtime=True):
-        if ak and sk:
-            bedrock_client = boto3.client(
-                service_name='bedrock-runtime' if runtime else 'bedrock',
-                aws_access_key_id=ak,
-                aws_secret_access_key=sk,
-                region_name=region or os.environ.get('AWS_REGION'),
-                config=Config(
-                    retries={
-                        "max_attempts": 3,
-                        "mode": "standard",
-                    },
-                    read_timeout=600,
-                )
+    def _get_bedrock_client(self, runtime=True):
+        """Create Bedrock client using EC2 IAM role credentials"""
+        bedrock_client = boto3.client(
+            service_name='bedrock-runtime' if runtime else 'bedrock',
+            region_name=self.region,
+            config=Config(
+                retries={
+                    "max_attempts": 3,
+                    "mode": "standard",
+                },
+                read_timeout=600,
             )
-        if self.env['AWS_ACCESS_KEY_ID'] and self.env['AWS_SECRET_ACCESS_KEY']:
-            bedrock_client = boto3.client(
-                service_name='bedrock-runtime' if runtime else 'bedrock',
-                aws_access_key_id=self.env['AWS_ACCESS_KEY_ID'],
-                aws_secret_access_key=self.env['AWS_SECRET_ACCESS_KEY'],
-                region_name=self.env['AWS_REGION'],
-                config=Config(
-                    retries={
-                        "max_attempts": 3,
-                        "mode": "standard",
-                    },
-                    read_timeout=600,
-                )
-            )
-        else:
-            bedrock_client = boto3.client(
-                service_name='bedrock-runtime' if runtime else 'bedrock',
-                region_name=self.env['AWS_REGION'],
-                config=Config(
-                    retries={
-                        "max_attempts": 3,
-                        "mode": "standard",
-                    },
-                    read_timeout=600,
-                ))
-
+        )
         return bedrock_client
     
     def clear_history(self):

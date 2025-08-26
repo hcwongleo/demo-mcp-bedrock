@@ -24,13 +24,13 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s',
 )
 logger = logging.getLogger(__name__)
-# 全局模型和服务器配置
+# Global model and server configuration
 load_dotenv()  # load env vars from .env
-# DynamoDB 客户端
+# DynamoDB client
 dynamodb_client = None
-DDB_TABLE = os.environ.get("ddb_table")  # DynamoDB表名，用于存储用户配置
-user_mcp_server_configs = {}  # 用户特有的MCP服务器配置 user_id -> {server_id: config}
-global_mcp_server_configs = {}  # 全局MCP服务器配置 server_id -> config
+DDB_TABLE = os.environ.get("ddb_table")  # DynamoDB table name for storing user configurations
+user_mcp_server_configs = {}  # User-specific MCP server configurations user_id -> {server_id: config}
+global_mcp_server_configs = {}  # Global MCP server configurations server_id -> config
 
 session_lock = threading.RLock()
 
@@ -38,9 +38,9 @@ if DDB_TABLE:
     try:
         region = os.environ.get('AWS_REGION', 'us-east-1')
         dynamodb_client = boto3.resource('dynamodb', region_name=region)
-        logger.info(f"已连接到DynamoDB, 表名: {DDB_TABLE}")
+        logger.info(f"Connected to DynamoDB, table name: {DDB_TABLE}")
     except Exception as e:
-        logger.error(f"DynamoDB连接失败: {e}")
+        logger.error(f"DynamoDB connection failed: {e}")
 
 def save_configs_to_json(configs:dict):
     config_file = os.environ.get('USER_MCP_CONFIG_FILE', 'conf/user_mcp_configs.json')
@@ -48,7 +48,7 @@ def save_configs_to_json(configs:dict):
         json.dump(configs, f, indent=2)
         
 async def save_to_ddb(user_id: str, data: dict):
-    """将用户配置保存到DynamoDB"""
+    """Save user configuration to DynamoDB"""
     if not dynamodb_client or not DDB_TABLE:
         return False
     
@@ -61,14 +61,14 @@ async def save_to_ddb(user_id: str, data: dict):
                 'timestamp': datetime.now().isoformat()
             }
         )
-        logger.info(f"保存用户 {user_id} 配置到DynamoDB成功")
+        logger.info(f"Successfully saved user {user_id} configuration to DynamoDB")
         return True
     except Exception as e:
-        logger.error(f"保存用户 {user_id} 配置到DynamoDB失败: {e}")
+        logger.error(f"Failed to save user {user_id} configuration to DynamoDB: {e}")
         return False
 
 async def get_from_ddb(user_id: str) -> dict:
-    """从DynamoDB获取用户配置"""
+    """Get user configuration from DynamoDB"""
     if not dynamodb_client or not DDB_TABLE:
         return {}
     
@@ -82,17 +82,17 @@ async def get_from_ddb(user_id: str) -> dict:
         
         if 'Item' in response:
             data = json.loads(response['Item'].get('data', '{}'))
-            logger.info(f"从DynamoDB获取用户 {user_id} 配置成功")
+            logger.info(f"Successfully retrieved user {user_id} configuration from DynamoDB")
             return data
         else:
-            logger.info(f"用户 {user_id} 在DynamoDB中无配置")
+            logger.info(f"User {user_id} has no configuration in DynamoDB")
             return {}
     except Exception as e:
-        logger.warning(f"从DynamoDB获取用户 {user_id} 配置失败: {e}")
+        logger.warning(f"Failed to retrieve user {user_id} configuration from DynamoDB: {e}")
         return {}
         
 async def delete_from_ddb(user_id: str) -> bool:
-    """从DynamoDB删除用户配置"""
+    """Delete user configuration from DynamoDB"""
     if not dynamodb_client or not DDB_TABLE:
         return False
     
@@ -103,14 +103,14 @@ async def delete_from_ddb(user_id: str) -> bool:
                 'userId': user_id
             }
         )
-        logger.info(f"从DynamoDB删除用户 {user_id} 配置成功")
+        logger.info(f"Successfully deleted user {user_id} configuration from DynamoDB")
         return True
     except Exception as e:
-        logger.error(f"从DynamoDB删除用户 {user_id} 配置失败: {e}")
+        logger.error(f"Failed to delete user {user_id} configuration from DynamoDB: {e}")
         return False
 
 async def scan_all_from_ddb() -> dict:
-    """从DynamoDB扫描所有用户配置，处理分页"""
+    """Scan all user configurations from DynamoDB, handling pagination"""
     if not dynamodb_client or not DDB_TABLE:
         return {}
     
