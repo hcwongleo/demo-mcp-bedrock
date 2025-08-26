@@ -197,10 +197,18 @@ class MCPClient:
         return tool_config
 
     async def call_tool(self, tool_name, tool_args):
-        """Call tool via MCP server"""
+        """Call tool via MCP server with timeout"""
+        import asyncio
         try:
-            result = await self.session.call_tool(tool_name, tool_args)
+            # Add 5-minute timeout for MCP tool calls
+            result = await asyncio.wait_for(
+                self.session.call_tool(tool_name, tool_args),
+                timeout=300.0
+            )
             return result
+        except asyncio.TimeoutError:
+            logger.error(f"MCP tool call timeout for {tool_name}")
+            return {"error": "Tool call timeout", "tool": tool_name}
         except ValidationError as e:
             # Extract the actual tool result from the validation error
             raw_data = e.errors() if hasattr(e, 'errors') else None
