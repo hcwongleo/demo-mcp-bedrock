@@ -9,7 +9,8 @@ import logging
 from typing import Dict, AsyncGenerator, Optional, List, AsyncIterator
 import json
 import boto3
-from botocore.config import Config 
+from botocore.config import Config
+from botocore.exceptions import ReadTimeoutError, ConnectionError 
 from dotenv import load_dotenv
 from chat_client import ChatClient
 import base64
@@ -470,6 +471,11 @@ class ChatClientStream(ChatClient):
                             turn_i = max_turns
                             continue
 
+            except (ReadTimeoutError, ConnectionError) as e:
+                logger.warning(f"Stream connection issue, retrying: {e}")
+                yield {"type": "error", "data": {"error": "Connection timeout, please try again"}}
+                turn_i = max_turns
+                break
             except Exception as e:
                 logger.error(f"Stream processing error: {e}")
                 yield {"type": "error", "data": {"error": str(e)}}
